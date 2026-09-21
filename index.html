@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Staff Application | Louisiana State Roleplay</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0d10;
+            color: #ffffff;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #a9adb5;
+            font-size: 15px;
+        }
+
+        .card {
+            background: #13161b;
+            border: 1px solid #252a32;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .description {
+            color: #9298a3;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .question {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 9px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            background: #0d0f13;
+            border: 1px solid #2b3038;
+            color: white;
+            border-radius: 7px;
+            padding: 12px;
+            font-size: 14px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #5865f2;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .required {
+            color: #ff5555;
+        }
+
+        .confirmation {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .confirmation input {
+            width: auto;
+            margin-top: 3px;
+        }
+
+        .confirmation label {
+            font-weight: normal;
+            font-size: 14px;
+            color: #b7bbc3;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: #5865f2;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #4752c4;
+        }
+
+        .footer {
+            text-align: center;
+            color: #686d76;
+            font-size: 12px;
+            margin-top: 25px;
+        }
+
+        .success {
+            display: none;
+            background: #14261a;
+            border: 1px solid #285a32;
+            color: #a9e6b3;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 12px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+<!-- HEADER -->
+    <div class="header">
+        <h1 id="pageTitle">Staff Application</h1>
+        <p id="pageSubtitle">Louisiana State Roleplay</p>
+    </div>
+
+    <!-- ERFOLGSMELDUNG -->
+    <div class="success" id="successMessage">
+        Application submitted successfully.
+    </div>
+
+    <form id="applicationForm">
+
+        <!-- ALLGEMEINE INFORMATIONEN -->
+        <div class="card">
+
+            <h2 id="section1">General Information</h2>
+
+            <p class="description" id="description1">
+                Please answer every question honestly and with sufficient detail.
+            </p>
+
+            <div class="question">
+                <label>
+                    <span id="q1">1. Roblox username</span>
+                    <span class="required">*</span>
+                </label>
+                <input type="text" required>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q2">2. Discord username</span>
+                    <span class="required">*</span>
+                </label>
+                <input type="text" required>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q3">3. Age</span>
+                    <span class="required">*</span>
+                </label>
+                <input type="number" min="13" required>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q4">4. How long have you been part of Louisiana State Roleplay?</span>
+                    <span class="required">*</span>
+                </label>
+                <input type="text" required>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q5">5. How many hours are you active on average per week?</span>
+                    <span class="required">*</span>
+                </label>
+                <input type="text" required>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q6">6. What experience do you have as a moderator, administrator, or in a leadership position?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+        </div>
+
+
+        <!-- LEITUNG UND VERANTWORTUNG -->
+        <div class="card">
+
+            <h2 id="section2">Leadership and Responsibility</h2>
+
+            <div class="question">
+                <label>
+                    <span id="q7">7. What do you consider to be the responsibilities of a Staff?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q8">8. What is the difference between a Staff and a regular Moderator?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q9">9. What responsibility does a Staff have towards the moderation team and server leadership?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q10">10. How would you train new moderators and explain the rules and internal procedures to them?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q11">11. How would you make sure that moderators perform their duties reliably and according to the rules?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q12">12. A moderator repeatedly makes mistakes when issuing punishments. How would you handle the situation?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q13">13. A moderator uses their permissions to favor a friend. How would you proceed?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+        </div>
+
+
+        <!-- KONFLIKTE -->
+        <div class="card">
+
+            <h2 id="section3">Conflicts and Decisions</h2>
+
+            <div class="question">
+                <label>
+                    <span id="q14">14. Two moderators get into an argument over a decision. How would you resolve the conflict?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q15">15. A moderator publicly questions your decision. How would you respond?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q16">16. A player reports a moderator and provides evidence of misconduct. How would you handle the case?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q17">17. You discover that a moderator issued an unnecessarily harsh punishment. What would you do?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q18">18. A higher-ranking member of the server leadership requests a decision you disagree with. How would you handle it?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+        </div>
+
+
+        <!-- TEAMLEITUNG -->
+        <div class="card">
+
+            <h2 id="section4">Team Leadership</h2>
+
+            <div class="question">
+                <label>
+                    <span id="q19">19. How would you improve the activity and quality of work within the moderation team in the long term?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q20">20. How would you handle a moderator who performs well but repeatedly communicates unprofessionally with players?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q21">21. Several moderators become inactive at the same time and player support suffers. What would you do?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q22">22. How would you give constructive criticism to a moderator without unnecessarily embarrassing them in front of other team members?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+        </div>
+
+
+        <!-- ABSCHLUSS -->
+        <div class="card">
+
+            <h2 id="section5">Final Questions</h2>
+
+            <div class="question">
+                <label>
+                    <span id="q23">23. Why do you want to become Staff?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q24">24. Why should the server leadership trust you with responsibility for the moderation team?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q25">25. What would you like to improve as Staff at Louisiana State Roleplay?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q26">26. What do you expect from the server leadership in your future position?</span>
+                    <span class="required">*</span>
+                </label>
+                <textarea required></textarea>
+            </div>
+
+            <div class="question">
+                <label>
+                    <span id="q27">27. Is there anything else you would like to tell the server leadership about yourself or your application?</span>
+                </label>
+                <textarea></textarea>
+            </div>
+
+
+            <!-- CONFIRMATION -->
+            <div class="confirmation">
+                <input type="checkbox" id="confirmation" required>
+
+                <label for="confirmation" id="confirmationText">
+                    I confirm that all information in this application is truthful and that I understand the responsibility I would have towards the moderation team, the community, and the server leadership.
+                </label>
+            </div>
+
+        </div>
+
+
+        <button type="submit" id="submitButton">
+            Submit Application
+        </button>
+
+    </form>
+
+    <div class="footer">
+        Louisiana State Roleplay · Application Center
+    </div>
+
+</div>
+<script>
+const API_ENDPOINT = "PASTE_YOUR_CLOUDFLARE_WORKER_URL_HERE";
+
+document.getElementById("applicationForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+    const button = document.getElementById("submitButton");
+    const success = document.getElementById("successMessage");
+    button.disabled = true;
+    button.textContent = "Submitting...";
+    success.classList.remove("show");
+
+    const fields = Array.from(this.querySelectorAll("input:not([type=checkbox]), textarea"));
+    const application = {};
+    fields.forEach((field) => {
+        const label = field.closest(".question")?.querySelector("label")?.innerText?.trim() || "Field";
+        const cleanLabel = label.replace(/^\d+\.\s*/, "").replace(/\s*\*\s*$/, "");
+        application[cleanLabel] = field.value.trim();
+    });
+
+    try {
+        if (API_ENDPOINT.includes("PASTE_YOUR")) throw new Error("The application system is not connected yet. Add your Worker URL to API_ENDPOINT in index.html.");
+        const response = await fetch(API_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ application, submittedAt: new Date().toISOString() })
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.success) throw new Error(result.error || "Submission failed.");
+        success.textContent = "Your application has been submitted successfully. Thank you.";
+        success.classList.add("show");
+        this.reset();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (error) {
+        alert(error.message || "Something went wrong. Please try again later.");
+    } finally {
+        button.disabled = false;
+        button.textContent = "Submit Application";
+    }
+});
+</script>
+
+</body>
+</html>
